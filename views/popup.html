@@ -1,0 +1,61 @@
+<div class="seanse_popup">
+  <div class="seanse_popup__header"><a href="/" class="seanse_popup__logo"><img src="img/logo.png" alt="neva cinema"></a>
+    <p class="seanse_popup__header__title">Билеты</p><a href="/" class="seanse_popup__header__close">Выйти</a>
+  </div>
+  <div class="seanse_popup__main">
+    <div class="seanse">
+        <p class="seanse__film_title">Вы выбрали фильм <br><span>{{film.title}}</span></p>
+      <p class="seanse__film_sublitle">для детей старше 6 лет</p>
+      <div class="seanse__row">
+        <div class="seanse__column">
+          <p class="seanse__text">Выбор мест</p>
+          <div class="seanse_scheme">
+            <p class="seanse_scheme__screen">Экран</p>
+            {{#each rows}}
+            <div class="seanse_scheme__row">
+                {{#each .}}{{>seat}}{{/each}}
+            </div>
+            {{/each}}
+          </div>
+          <p class="seanse__hall">Зеленый зал</p>
+          <p class="seanse__text">Обозначение мест</p>
+          <ul class="seanse_scheme__desc">
+            <li class="seanse_scheme__desc__item">занято</li>
+            <li class="seanse_scheme__desc__item">свободно</li>
+            <li class="seanse_scheme__desc__item">выбрано</li>
+          </ul>
+          <p class="seanse__offer">Вы член клуба Neva Cinema? Для того, чтобы использовать привилегии, введите номер клубной карты 
+            <input type="text" name="cardnumber" placeholder="введите номер" class="input">
+          </p>
+          <p class="seanse__offer">Если вы не являетесь зарегистрированным членом клуба Neva Cinema, введите адрес вашей электронной почты, на который мы пришлем подтверждение и информацию по билетам
+            <input type="text" name="email" placeholder="ваша@почта" class="input">
+          </p>
+        </div>
+        <div class="seanse__column">
+          <ul class="seanse__information"> 
+              {{#with screening}}
+              <li class="seanse__information__item"><span>Дата:</span> {{date}}</li>
+              <li class="seanse__information__item"><span>Сеанс:</span> {{time}}</li>
+              <li class="seanse__information__item"><span>Цена одного билета:</span> {{price}} рублей</li>
+            {{/with}}
+            <li class="seanse__information__item"><span>Не выбрано ни одного места</span>
+              <ul>
+              </ul>
+            </li>
+            <li class="seanse__information__item"><span>Итого:</span> 0 билетов на сумму 0 рублей</li>
+          </ul>
+          <label class="radio_button">
+            <input type="radio" name="target" class="radio_button__input"><span>Оплатить билеты</span>
+          </label>
+          <label class="radio_button">
+            <input type="radio" name="target" checked class="radio_button__input"><span>Забронировать</span>
+          </label>
+          <button type="submit" class="btn">Далее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="seanse_popup__footer">
+    <p class="seanse_popup__footer__text">Узнать о клубе Neva Cinema <br> и привилегиях можно <a href="/">здесь</a>.</p><a href="tel:88123758192" class="seanse_popup__footer__phone">+7 (812) 375-81-92</a>
+  </div>
+</div>
