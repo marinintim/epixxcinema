@@ -52,6 +52,11 @@ db.put('1', {
 var app = express()
 var hbs = require('hbs')
 hbs.registerPartials('views')
+hbs.registerHelper('json', function(ctx, opts) {
+    console.log(ctx);
+    console.log('------')
+    return new hbs.SafeString(JSON.stringify(ctx))
+})
 
 app.set('view engine', 'html')
 app.engine('html', hbs.__express)

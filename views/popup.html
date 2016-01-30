@@ -1,19 +1,27 @@
+
 <div class="seanse_popup">
-  <div class="seanse_popup__header"><a href="/" class="seanse_popup__logo"><img src="img/logo.png" alt="neva cinema"></a>
+<script>
+var jsData = {
+    screening: {{json screening}},
+    seats: {{json rows}}
+};
+</script>
+<div class="seanse_popup__header"><a href="/" class="seanse_popup__logo"><img src="img/logo.png" alt="neva cinema"></a>
     <p class="seanse_popup__header__title">Билеты</p><a href="/" class="seanse_popup__header__close">Выйти</a>
   </div>
   <div class="seanse_popup__main">
     <div class="seanse">
-        <p class="seanse__film_title">Вы выбрали фильм <br><span>{{film.title}}</span></p>
+        <p class="seanse__film_title">Вы выбрали фильм <br><span>{{screening.title}}</span></p>
       <p class="seanse__film_sublitle">для детей старше 6 лет</p>
+
       <div class="seanse__row">
         <div class="seanse__column">
           <p class="seanse__text">Выбор мест</p>
           <div class="seanse_scheme">
             <p class="seanse_scheme__screen">Экран</p>
-            {{#each rows}}
-            <div class="seanse_scheme__row">
-                {{#each .}}{{>seat}}{{/each}}
+            {{#each rows as |row rowNum|}}
+            <div class="seanse_scheme__row" data-row="{{rowNum}}">
+                {{#each row}}{{>seat}}{{/each}}
             </div>
             {{/each}}
           </div>
