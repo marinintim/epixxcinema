@@ -1,0 +1,15 @@
+* Epixx Cinema
+
+This is a learning project boilerplate for [[http://epixx.ru][Epic Skills]] students.
+
+** Как начать
+   1. Форкните репозиторий (кнопка Fork наверху)
+   2. Склонируйте к себе форкнутый вариант
+   3. Выполните =npm install=
+   4. Запустите сервер через =npm start=
+   5. Изменяйте клиентский джаваскрипт в =public/js=
+   6. Коммитьте и пушьте
+
+** Эндпоинты API
+
+FIXME
