@@ -11,6 +11,10 @@ hbs.registerPartials('views')
 hbs.registerHelper('json', (ctx, opts) => new hbs.SafeString(JSON.stringify(ctx)))
 app.set('view engine', 'html')
 app.engine('html', hbs.__express)
+app.use(function(req, res, next) {
+    req.db = db
+    next()
+})
 /* Объявляем роуты */
 app.get('/', require('./app/main'))
 app.get('/popup/:film/:date/:time', require('./app/popup'))

@@ -1,6 +1,5 @@
-const db = require('level')('../cinema.db')
 const seats = require('./seats')
-module.exports = function main(req, res) {
+module.exports = function main({db}, res) {
     /* Тут нужно тоже заменить */
     db.get('1', {encoding:'json'}, (err, data) => {
         if (err) {

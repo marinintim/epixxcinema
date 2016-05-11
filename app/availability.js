@@ -1,6 +1,4 @@
-const db = require('level')('../cinema.db')
-
-module.exports = function getAvailability({params: {film, date, time}}, res) {
+module.exports = function getAvailability({db, params: {film, date, time}}, res) {
     db.get(film, function(err, data) {
         if (err) {
             console.error(err)

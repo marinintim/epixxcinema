@@ -20,8 +20,8 @@ const available = _.map(function(i) {
 
 module.exports = function getSeatsByRow(film, date, time) {
     return _.mapValues(function(v, k) {
-        return _.chain(reserved(rows[k].reserved))
-            .concat(available(rows[k].available))
+        return _.chain(reserved(v.reserved))
+            .concat(available(v.available))
             .map(v => ((v.row = +k), v))
             .sort('seat')
     }, film.screenings[date][time])
